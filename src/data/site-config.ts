@@ -22,13 +22,13 @@ const siteConfig: SiteConfig = {
         src: isCmsUpload(settings.avatar?.src) ? settings.avatar.src : avatarImage,
         alt: settings.avatar?.alt || 'Avatar'
     },
-    title: settings.title,
-    browserTabText: settings.browserTabText || settings.title,
-    subtitle: settings.subtitle,
-    description: settings.description,
+    title: settings.avatar?.title,
+    browserTabText: settings.browserTabText || settings.avatar?.title,
+    subtitle: settings.avatar?.subtitle,
+    description: settings.seo?.description,
     image: {
-        src: isCmsUpload(settings.previewImage?.src) ? settings.previewImage.src : previewImage,
-        alt: settings.previewImage?.alt || 'Preview Image'
+        src: isCmsUpload(settings.seo?.previewImage?.src) ? settings.seo.previewImage.src : previewImage,
+        alt: settings.seo?.previewImage?.alt || 'Preview Image'
     },
     headerNavLinks: settings.headerNavLinks,
     footerNavLinks: settings.footerNavLinks,

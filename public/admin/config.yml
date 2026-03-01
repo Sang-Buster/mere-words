@@ -21,33 +21,41 @@ collections:
         format: json
         fields:
           - { label: Browser Tab Text, name: browserTabText, widget: string, required: false, hint: "Shown in the browser tab. Falls back to Site Title if empty." }
-          - label: Preview Image (SEO)
-            name: previewImage
+          - label: SEO
+            name: seo
             widget: object
             required: false
             collapsed: true
+            hint: "Optional — overrides default meta tags"
             fields:
-              - label: Image
-                name: src
-                widget: image
+              - label: Preview Image
+                name: previewImage
+                widget: object
                 required: false
-              - { label: Alt Text, name: alt, widget: string, required: false }
-          - { label: Site Description (SEO), name: description, widget: text, required: false, hint: "A short description of your site for SEO purposes" }
+                collapsed: true
+                fields:
+                  - label: Image
+                    name: src
+                    widget: image
+                    required: false
+                  - { label: Alt Text, name: alt, widget: string, required: false }
+              - { label: Site Description, name: description, widget: text, required: false, hint: "A short description of your site for SEO purposes" }
           - label: Header Nav Links
             name: headerNavLinks
             widget: list
             summary: "{{fields.text}}"
+            collapsed: true
             fields:
               - { label: Text, name: text, widget: string }
               - { label: URL, name: href, widget: string }
-          - { label: Site Title, name: title, widget: string, hint: "Displayed next to the avatar" }
-          - { label: Subtitle, name: subtitle, widget: string, required: false }
           - label: Avatar
             name: avatar
             widget: object
             required: false
             collapsed: true
             fields:
+              - { label: Site Title, name: title, widget: string, hint: "Displayed next to the avatar" }
+              - { label: Subtitle, name: subtitle, widget: string, required: false }
               - label: Image
                 name: src
                 widget: image
@@ -85,6 +93,7 @@ collections:
             name: footerNavLinks
             widget: list
             summary: "{{fields.text}}"
+            collapsed: true
             fields:
               - { label: Text, name: text, widget: string }
               - { label: URL, name: href, widget: string }
@@ -92,6 +101,7 @@ collections:
             name: socialLinks
             widget: list
             summary: "{{fields.text}}"
+            collapsed: true
             fields:
               - { label: Text, name: text, widget: string }
               - { label: URL, name: href, widget: string }

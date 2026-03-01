@@ -57,13 +57,9 @@
       "href": "/terms"
     }
   ],
-  "previewImage": {
-    "src": "../../assets/images/preview.jpg",
-    "alt": "Preview Image"
-  },
-  "subtitle": "Lines for the in-between",
-  "title": "Isabelle",
   "avatar": {
+    "title": "Isabelle",
+    "subtitle": "Lines for the in-between",
     "src": "../../assets/images/avatar.jpg",
     "alt": "Isabelle"
   },
@@ -83,5 +79,11 @@
     ]
   },
   "website": "https://poetry.singsongaftermath.com",
-  "description": "Mere Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words."
+  "seo": {
+    "previewImage": {
+      "src": "../../assets/images/preview.jpg",
+      "alt": "Preview Image"
+    },
+    "description": "Mere Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words."
+  }
 }
