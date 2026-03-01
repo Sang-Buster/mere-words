@@ -10,8 +10,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const notes = (await getCollection('notes')).sort(sortItemsByDateDesc);
-    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+    const notes = (await getCollection('notes')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
+    const poems = (await getCollection('poems')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
     const allItems = [...notes, ...poems].sort(sortItemsByDateDesc);
     const tags = getAllTags(allItems);
 
@@ -29,8 +29,8 @@ type Props = { page: Page<CollectionEntry<'notes' | 'poems'>> };
 const { page } = Astro.props;
 const blog = page.data;
 const params = Astro.params;
-const allNotes = await getCollection('notes');
-const allPoems = await getCollection('poems');
+const allNotes = (await getCollection('notes')).filter(({ data }) => !data.hidden);
+const allPoems = (await getCollection('poems')).filter(({ data }) => !data.hidden);
 const allItems = [...allNotes, ...allPoems];
 const allTags = getAllTags(allItems);
 const currentTag = allTags.find((tag) => {

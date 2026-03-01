@@ -9,10 +9,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
 const posts = (await getCollection('notes')).sort(sortItemsByDateDesc);
-const featuredPosts = posts.filter(({ data }) => data.isFeatured);
+const featuredPosts = posts.filter(({ data }) => data.isFeatured && !data.hidden);
 
 const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
-const featuredPoems = poems.filter(({ data }) => data.isFeatured);
+const featuredPoems = poems.filter(({ data }) => data.isFeatured && !data.hidden);
 ---
 
 <BaseLayout description={siteConfig.description}>

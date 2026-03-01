@@ -28,10 +28,18 @@ type Props = {
 const { href } = Astro.url;
 const { poem, prevPoem, nextPoem } = Astro.props;
 const { title, description, tags = [], seo } = poem.data;
+const isHidden = poem.data.hidden ?? false;
 const { Content } = await render(poem);
 ---
 
-<BaseLayout title={seo?.title ?? title} description={seo?.description ?? description} image={seo?.image} pageType="article" showHeader={false}>
+<BaseLayout
+    title={seo?.title ?? title}
+    description={seo?.description ?? description}
+    image={seo?.image}
+    pageType="article"
+    showHeader={false}
+    noindex={isHidden}
+>
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">
             <h1 class="font-serif text-3xl leading-tight font-medium sm:text-5xl sm:leading-tight">{title}</h1>

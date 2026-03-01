@@ -5,8 +5,8 @@ import Subscribe from '../../components/Subscribe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../utils/data-utils';
 
-const notes = (await getCollection('notes')).sort(sortItemsByDateDesc);
-const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+const notes = (await getCollection('notes')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
+const poems = (await getCollection('poems')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
 const allItems = [...notes, ...poems];
 const tags = getAllTags(allItems).sort((tagA, tagB) => {
     const postCountTagA = getPostsByTag(allItems, tagA.id).length;
