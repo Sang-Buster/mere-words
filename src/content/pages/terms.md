@@ -2,12 +2,12 @@
 title: Terms of Service
 seo:
   title: Terms of Service
-  description: Explore the terms and conditions of the my website for a clear understanding of guidelines and responsibilities.
+  description: Explore the terms and conditions of the my website for a clear
+    understanding of guidelines and responsibilities.
 ---
-
 **Last updated on February 28, 2026**
 
-These Terms of Service govern your access to and use of the Website and any related services provided by Isabelle ("we," "us," or "our"). Please read these Terms carefully before using the Website.
+These Terms of Service govern your access to and use of the website and any related services provided by Isabelle ("we," "us," or "our"). Please read these Terms carefully before using the Website.
 
 **1. Acceptance of Terms**
 
@@ -49,4 +49,4 @@ To the fullest extent permitted by law, we shall not be liable for any direct, i
 
 These Terms are governed by and construed in accordance with applicable laws, without regard to conflict of laws principles.
 
-_Thank you for reading our Terms of Service. By using the Website, you agree to be bound by these Terms._
+*Thank you for reading our Terms of Service. By using the Website, you agree to be bound by these Terms.*
