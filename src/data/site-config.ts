@@ -12,8 +12,8 @@ const siteConfig: SiteConfig = {
     subtitle: 'Lines for the in-between',
     description: 'Mere-Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words.',
     image: {
-        src: '/dante-preview.jpg',
-        alt: 'Dante - Astro.js and Tailwind CSS theme'
+        src: '/preview.jpg',
+        alt: 'Mere Words - Astro.js and Tailwind CSS theme'
     },
     headerNavLinks: [
         {
@@ -77,7 +77,7 @@ const siteConfig: SiteConfig = {
     },
     subscribe: {
         enabled: true,
-        title: 'Subscribe to Dante Newsletter',
+        title: 'Subscribe to Mere Words',
         text: 'All the latest posts directly in your inbox.',
         form: {
             action: '#'

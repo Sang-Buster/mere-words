@@ -15,137 +15,63 @@
             :root {
                 --text-main: #171717;
                 --bg-main: #f2f1ec;
-                --bg-muted: #eae9e1;
-                --border-main: #171717;
             }
 
             @media (prefers-color-scheme: dark) {
                 :root {
                     --text-main: #f2f1ec;
                     --bg-main: #18230f;
-                    --bg-muted: #27391c;
-                    --border-main: #f2f1ec;
                 }
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
             }
 
             body {
                 font-family: 'Inter', sans-serif;
                 background-color: var(--bg-main);
                 color: var(--text-main);
-                min-height: 100vh;
+                margin: 0;
+            }
+
+            #loading-screen {
+                position: fixed;
+                inset: 0;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                z-index: 1;
+                background-color: var(--bg-main);
+                transition: opacity 0.3s ease;
             }
 
-            .admin-login {
-                width: 100%;
-                max-width: 400px;
-                padding: 2rem;
-                text-align: center;
-            }
-
-            .admin-login h1 {
+            #loading-screen h1 {
                 font-family: 'Newsreader', serif;
                 font-weight: 500;
                 font-size: 2rem;
-                margin-bottom: 0.5rem;
                 font-style: italic;
+                margin-bottom: 0.5rem;
             }
 
-            .admin-login p {
+            #loading-screen p {
                 font-size: 0.875rem;
-                opacity: 0.7;
-                margin-bottom: 2rem;
-            }
-
-            /* Style the Netlify Identity widget button */
-            .login-button {
-                font-family: 'Inter', sans-serif;
-                font-size: 0.875rem;
-                font-weight: 500;
-                padding: 0.75rem 2rem;
-                background-color: var(--text-main);
-                color: var(--bg-main);
-                border: none;
-                cursor: pointer;
-                letter-spacing: 0.025em;
-                transition: opacity 0.2s ease;
-            }
-
-            .login-button:hover {
-                opacity: 0.85;
-            }
-
-            .back-link {
-                display: inline-block;
-                margin-top: 1.5rem;
-                font-size: 0.8rem;
-                color: var(--text-main);
                 opacity: 0.5;
-                text-decoration: none;
-                transition: opacity 0.2s ease;
-            }
-
-            .back-link:hover {
-                opacity: 0.8;
-            }
-
-            /* Override Netlify Identity Widget modal styles */
-            .netlify-identity-signup-form,
-            .netlify-identity-login-form {
-                font-family: 'Inter', sans-serif !important;
             }
         </style>
     </head>
     <body>
-        <div class="admin-login" id="login-container">
+        <div id="loading-screen">
             <h1>Mere Words</h1>
-            <p>Content Management</p>
-            <button class="login-button" id="login-btn">Sign In</button>
-            <br />
-            <a href="/" class="back-link">&larr; Back to site</a>
+            <p>Loading editor&hellip;</p>
         </div>
-
-        <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script is:inline src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
         <script is:inline>
-            var loginBtn = document.getElementById('login-btn');
-            var loginContainer = document.getElementById('login-container');
-
-            function loadCMS() {
-                loginContainer.innerHTML = '<p style="opacity:0.7">Loading editor...</p>';
-                var script = document.createElement('script');
-                script.src = 'https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js';
-                document.body.appendChild(script);
-            }
-
-            loginBtn.addEventListener('click', function () {
-                netlifyIdentity.open();
-            });
-
-            netlifyIdentity.on('login', function () {
-                document.location.href = '/admin/';
-            });
-
-            // Check immediately if user is already logged in
-            // (handles the redirect back after login)
-            var currentUser = netlifyIdentity.currentUser();
-            if (currentUser) {
-                loadCMS();
-            } else {
-                // Also listen for init in case widget hasn't loaded yet
-                netlifyIdentity.on('init', function (user) {
-                    if (user) {
-                        loadCMS();
-                    }
-                });
-            }
+            // Hide loading screen once Decap CMS mounts
+            var check = setInterval(function () {
+                if (document.getElementById('nc-root')) {
+                    var s = document.getElementById('loading-screen');
+                    if (s) s.style.display = 'none';
+                    clearInterval(check);
+                }
+            }, 200);
         </script>
     </body>
 </html>

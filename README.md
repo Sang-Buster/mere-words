@@ -1,10 +1,10 @@
-# Dante - Astro & Tailwind CSS Theme by justgoodui.com
+# Mere Words - Astro & Tailwind CSS Theme by justgoodui.com
 
-Dante is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
+Mere Words is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
 
-![Dante Astro.js Theme](public/dante-preview.jpg)
+![Mere Words Astro.js Theme](public/preview.jpg)
 
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/dante-astro-theme)
+[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/mere-words-astro-theme)
 
 Clicking the button above ☝️ will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
 
@@ -58,7 +58,7 @@ The theme uses a `CustomImage` component that automatically displays images usin
 
 ## Project Structure
 
-Inside of Dante Astro theme, you'll see the following folders and files:
+Inside of Mere Words Astro theme, you'll see the following folders and files:
 
 ```text
 ├── public/
@@ -116,4 +116,4 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 
 ## License
 
-Licensed under the [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE) license.
+Licensed under the [GPL-3.0](https://github.com/JustGoodUI/mere-words-astro-theme/blob/main/LICENSE) license.
