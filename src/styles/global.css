@@ -137,13 +137,23 @@ html.dark {
         border-bottom: 1px solid var(--border-main);
     }
 
-    .prose th[align="center"],
-    .prose td[align="center"] {
+    .prose th[align='center'],
+    .prose td[align='center'] {
         text-align: center;
     }
 
-    .prose th[align="right"],
-    .prose td[align="right"] {
+    .prose th[align='right'],
+    .prose td[align='right'] {
         text-align: right;
+    }
+
+    /* Keyboard input */
+    .prose kbd {
+        background-color: var(--text-main);
+        color: var(--bg-main);
+        padding: 0.125em 0.375em;
+        border-radius: 0.25em;
+        font-size: 0.875em;
+        font-family: inherit;
     }
 }
