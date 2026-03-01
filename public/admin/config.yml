@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: src/assets/images
+public_folder: ../../assets/images
+
+collections:
+  - name: poems
+    label: Poems
+    folder: src/content/poems
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Publish Date, name: publishDate, widget: datetime, date_format: "MMM D YYYY", time_format: false }
+      - { label: Featured, name: isFeatured, widget: boolean, default: false }
+      - label: SEO
+        name: seo
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: SEO Title, name: title, widget: string, required: false }
+          - { label: SEO Description, name: description, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: notes
+    label: Notes
+    folder: src/content/notes
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Excerpt, name: excerpt, widget: text, required: false }
+      - { label: Publish Date, name: publishDate, widget: datetime, date_format: "MMM D YYYY", time_format: false }
+      - { label: Updated Date, name: updatedDate, widget: datetime, date_format: "MMM D YYYY", time_format: false, required: false }
+      - { label: Featured, name: isFeatured, widget: boolean, default: false }
+      - { label: Tags, name: tags, widget: list, default: [] }
+      - label: SEO
+        name: seo
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: SEO Title, name: title, widget: string, required: false }
+          - { label: SEO Description, name: description, widget: string, required: false }
+          - label: SEO Image
+            name: image
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: src, widget: image, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: pages
+    label: Pages
+    folder: src/content/pages
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - label: SEO
+        name: seo
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: SEO Title, name: title, widget: string, required: false }
+          - { label: SEO Description, name: description, widget: string, required: false }
+          - label: SEO Image
+            name: image
+            widget: object
+            required: false
+            fields:
+              - { label: Image, name: src, widget: image, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+      - { label: Body, name: body, widget: markdown }
