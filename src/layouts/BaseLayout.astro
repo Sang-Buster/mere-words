@@ -31,6 +31,79 @@ const { showHeader = true, ...head } = Astro.props;
             </main>
             <Footer />
         </div>
+
+        <!-- Scroll to top button with progress ring -->
+        <button
+            id="scroll-top-btn"
+            aria-label="Scroll to top"
+            class="fixed right-6 bottom-6 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-[var(--border-main)] bg-[var(--bg-main)] text-[var(--text-main)] opacity-0 shadow-lg transition-opacity duration-300 hover:bg-[var(--bg-muted)]"
+            style="pointer-events: none;"
+        >
+            <svg class="absolute inset-0 h-full w-full -rotate-90" viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="21" fill="none" stroke="var(--border-main)" stroke-width="2" opacity="0.15"></circle>
+                <circle
+                    id="scroll-progress-ring"
+                    cx="24"
+                    cy="24"
+                    r="21"
+                    fill="none"
+                    stroke="var(--border-main)"
+                    stroke-width="2"
+                    stroke-dasharray="131.95"
+                    stroke-dashoffset="131.95"
+                    stroke-linecap="round"></circle>
+            </svg>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="relative h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M12 19V5"></path>
+                <path d="m5 12 7-7 7 7"></path>
+            </svg>
+        </button>
+
+        <script>
+            document.addEventListener('astro:page-load', () => {
+                const btn = document.getElementById('scroll-top-btn') as HTMLButtonElement;
+                const ring = document.getElementById('scroll-progress-ring') as SVGCircleElement;
+                if (!btn || !ring) return;
+
+                const circumference = 2 * Math.PI * 21; // ~131.95
+
+                function updateProgress() {
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
+
+                    // Update ring
+                    ring.style.strokeDashoffset = String(circumference - progress * circumference);
+
+                    // Show/hide button
+                    if (scrollTop > 200) {
+                        btn.style.opacity = '1';
+                        btn.style.pointerEvents = 'auto';
+                    } else {
+                        btn.style.opacity = '0';
+                        btn.style.pointerEvents = 'none';
+                    }
+                }
+
+                window.addEventListener('scroll', updateProgress, { passive: true });
+                window.addEventListener('resize', updateProgress, { passive: true });
+                updateProgress();
+
+                btn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+        </script>
+
         <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <script is:inline>
             if (window.netlifyIdentity) {

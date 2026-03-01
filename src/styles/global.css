@@ -15,7 +15,7 @@
 }
 html.dark {
     --text-main: #f2f1ec;
-    --bg-main: #18230F;
+    --bg-main: #18230f;
     --bg-muted: #27391c;
     --border-main: #f2f1ec;
 }
@@ -94,5 +94,12 @@ html.dark {
 
     .prose blockquote {
         @apply border-none pl-0 font-serif text-[1.375em] leading-snug font-normal italic sm:text-[1.66667em];
+    }
+
+    .prose mark {
+        background-color: var(--text-main);
+        color: var(--bg-main);
+        padding: 0.125em 0.25em;
+        border-radius: 0.125em;
     }
 }
