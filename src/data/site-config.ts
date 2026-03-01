@@ -23,6 +23,7 @@ const siteConfig: SiteConfig = {
         alt: settings.avatar?.alt || 'Avatar'
     },
     title: settings.title,
+    browserTabText: settings.browserTabText || settings.title,
     subtitle: settings.subtitle,
     description: settings.description,
     image: {

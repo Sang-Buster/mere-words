@@ -62,17 +62,18 @@
     "alt": "Preview Image"
   },
   "subtitle": "Lines for the in-between",
-  "title": "Isabelle",
+  "title": "Isabelles",
   "avatar": {
     "src": "../../assets/images/avatar.jpg",
     "alt": "Isabelle"
   },
+  "browserTabText": "Mere Words - Isabelle",
   "hero": {
     "title": "You've found a quiet place.",
-    "text": "I'm **Isabelle**.\nI write poems, sometimes spiritual, sometimes not about the things that linger.\nAbout faith, doubt, longing, and ordinary days.\n\nYou can find more of my words on [Instagram](https://instagram.com/) or follow me on [Twitter/X](https://twitter.com/).",
+    "text": "I'm **Isabelles**.\nI write poems, sometimes spiritual, sometimes not about the things that linger.\nAbout faith, doubt, longing, and ordinary days.\n\nYou can find more of my words on [Instagram](https://instagram.com/) or follow me on [Twitter/X](https://twitter.com/).",
     "image": {
       "src": "../../assets/images/hero.jpg",
-      "alt": "Charlie Brown"
+      "alt": "Snoopy"
     },
     "actions": [
       {
@@ -82,5 +83,5 @@
     ]
   },
   "website": "https://poetry.singsongaftermath.com",
-  "description": "Mere-Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words."
+  "description": "Mere Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words."
 }

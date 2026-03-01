@@ -16,7 +16,7 @@ export type Props = {
 };
 
 const { description = '', pageType = 'website', noindex = false } = Astro.props;
-const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
+const title = [Astro.props.title, siteConfig.browserTabText || siteConfig.title].filter(Boolean).join(' | ');
 const image = Astro.props.image ?? siteConfig.image;
 let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {

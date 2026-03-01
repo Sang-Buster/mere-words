@@ -4,6 +4,7 @@ backend:
 
 site_url: https://poetry.singsongaftermath.com
 display_url: https://poetry.singsongaftermath.com
+local_backend: true
 media_folder: src/assets/images
 public_folder: ../../assets/images
 
@@ -20,9 +21,28 @@ collections:
         format: json
         fields:
           - { label: Website URL, name: website, widget: string }
-          - { label: Site Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: string, required: false }
+          - { label: Browser Tab Text, name: browserTabText, widget: string, required: false, hint: "Shown in the browser tab. Falls back to Site Title if empty." }
+          - label: Preview Image (SEO)
+            name: previewImage
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - label: Image
+                name: src
+                widget: image
+                required: false
+              - { label: Alt Text, name: alt, widget: string, required: false }
           - { label: Site Description, name: description, widget: text }
+          - label: Header Nav Links
+            name: headerNavLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
+          - { label: Site Title, name: title, widget: string, hint: "Displayed next to the avatar" }
+          - { label: Subtitle, name: subtitle, widget: string, required: false }
           - label: Avatar
             name: avatar
             widget: object
@@ -35,38 +55,6 @@ collections:
                 required: false
                 hint: "Upload an avatar image."
               - { label: Alt Text, name: alt, widget: string, required: false }
-          - label: Preview Image (SEO)
-            name: previewImage
-            widget: object
-            required: false
-            collapsed: true
-            fields:
-              - label: Image
-                name: src
-                widget: image
-                required: false
-              - { label: Alt Text, name: alt, widget: string, required: false }
-          - label: Header Nav Links
-            name: headerNavLinks
-            widget: list
-            summary: "{{fields.text}}"
-            fields:
-              - { label: Text, name: text, widget: string }
-              - { label: URL, name: href, widget: string }
-          - label: Footer Nav Links
-            name: footerNavLinks
-            widget: list
-            summary: "{{fields.text}}"
-            fields:
-              - { label: Text, name: text, widget: string }
-              - { label: URL, name: href, widget: string }
-          - label: Social Links
-            name: socialLinks
-            widget: list
-            summary: "{{fields.text}}"
-            fields:
-              - { label: Text, name: text, widget: string }
-              - { label: URL, name: href, widget: string }
           - label: Hero Section
             name: hero
             widget: object
@@ -94,6 +82,20 @@ collections:
                 fields:
                   - { label: Text, name: text, widget: string }
                   - { label: URL, name: href, widget: string }
+          - label: Footer Nav Links
+            name: footerNavLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
+          - label: Footer Social Links
+            name: socialLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
           - label: Newsletter Subscribe
             name: subscribe
             widget: object

@@ -34,6 +34,7 @@ export type SiteConfig = {
     website: string;
     avatar?: ImageInput;
     title: string;
+    browserTabText?: string;
     subtitle?: string;
     description: string;
     image?: ImageInput;
