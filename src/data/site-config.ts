@@ -77,7 +77,7 @@ const siteConfig: SiteConfig = {
     },
     subscribe: {
         enabled: true,
-        title: 'Subscribe to Mere Words',
+        title: 'Subscribe to my newsletter',
         text: 'All the latest posts directly in your inbox.',
         form: {
             action: '#'
