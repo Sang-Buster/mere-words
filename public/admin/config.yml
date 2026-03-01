@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: main
 
+site_url: https://poetry.singsongaftermath.com
+display_url: https://poetry.singsongaftermath.com
+
 media_folder: src/assets/images
 public_folder: ../../assets/images
 
@@ -11,6 +14,7 @@ collections:
     folder: src/content/poems
     create: true
     slug: "{{slug}}"
+    preview_path: "poems/{{slug}}"
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: string, required: false }
@@ -31,6 +35,7 @@ collections:
     folder: src/content/notes
     create: true
     slug: "{{slug}}"
+    preview_path: "notes/{{slug}}"
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Excerpt, name: excerpt, widget: text, required: false }
@@ -60,6 +65,7 @@ collections:
     folder: src/content/pages
     create: false
     slug: "{{slug}}"
+    preview_path: "{{slug}}"
     fields:
       - { label: Title, name: title, widget: string }
       - label: SEO
