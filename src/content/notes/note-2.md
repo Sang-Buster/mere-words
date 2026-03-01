@@ -1,20 +1,20 @@
 ---
 title: Writing as Prayer
-excerpt: I don't always know what I believe until I write it down. The pen becomes a kind of honesty I can't always speak.
-publishDate: 'Feb 12 2026'
+excerpt: I don't always know what I believe until I write it down. The pen
+  becomes a kind of honesty I can't always speak.
+publishDate: Feb 12 2026
 isFeatured: true
 tags:
   - Writing
   - Faith
 seo:
   image:
-    src: '../../assets/images/post-2.jpg'
+    src: ../../assets/images/post-2.jpg
     alt: A journal and pen
 ---
-
 ![A journal and pen](../../assets/images/post-2.jpg)
 
-I don't always know what I believe until I write it down.
+I don't always know what I believe until I write it down. test
 
 There's something about putting words on a page that strips away pretense. You can't hide behind a smile or a rehearsed answer when it's just you and the blank page.
 
