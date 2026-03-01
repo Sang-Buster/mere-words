@@ -95,6 +95,12 @@ html.dark {
     .prose blockquote {
         @apply border-l-2 border-solid pl-6 font-serif font-normal italic;
         border-color: var(--border-main);
+        quotes: none;
+    }
+
+    .prose blockquote p::before,
+    .prose blockquote p::after {
+        content: none;
     }
 
     .prose blockquote blockquote {
