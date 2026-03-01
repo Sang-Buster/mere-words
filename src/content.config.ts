@@ -46,6 +46,7 @@ const poems = defineCollection({
             description: z.string().optional(),
             publishDate: z.coerce.date(),
             isFeatured: z.boolean().default(false),
+            tags: z.array(z.string()).default([]),
             seo: seoSchema(image).optional()
         })
 });

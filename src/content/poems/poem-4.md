@@ -3,6 +3,9 @@ title: 'The Curtain of Stone'
 description: A short poem about the walls we build and the emotions we only half reveal.
 publishDate: 'Jan 28 2026'
 isFeatured: false
+tags:
+  - Reflection
+  - Emotions
 seo:
   title: The Curtain of Stone
   description: A short poem about the walls we build and the emotions we only half reveal.

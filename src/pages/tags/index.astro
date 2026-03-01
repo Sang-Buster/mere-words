@@ -5,10 +5,12 @@ import Subscribe from '../../components/Subscribe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../utils/data-utils';
 
-const posts = (await getCollection('notes')).sort(sortItemsByDateDesc);
-const tags = getAllTags(posts).sort((tagA, tagB) => {
-    const postCountTagA = getPostsByTag(posts, tagA.id).length;
-    const postCountTagB = getPostsByTag(posts, tagB.id).length;
+const notes = (await getCollection('notes')).sort(sortItemsByDateDesc);
+const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+const allItems = [...notes, ...poems];
+const tags = getAllTags(allItems).sort((tagA, tagB) => {
+    const postCountTagA = getPostsByTag(allItems, tagA.id).length;
+    const postCountTagB = getPostsByTag(allItems, tagB.id).length;
     return postCountTagB - postCountTagA;
 });
 ---
@@ -21,7 +23,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
     <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">All Tags</h1>
     {
         tags.map((tag) => {
-            const postCount = getPostsByTag(posts, tag.id).length;
+            const postCount = getPostsByTag(allItems, tag.id).length;
             return (
                 <a class="group mb-10 flex items-start justify-between gap-8 sm:mb-12" href={`/tags/${tag.id}`}>
                     <div class="grow">
@@ -29,7 +31,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
                             {tag.name}
                         </h2>
                         <div class="mt-1 text-sm leading-normal">
-                            {postCount} {postCount === 1 ? 'note' : 'notes'}
+                            {postCount} {postCount === 1 ? 'post' : 'posts'}
                         </div>
                     </div>
                     <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:shrink-0 sm:items-center sm:gap-1">

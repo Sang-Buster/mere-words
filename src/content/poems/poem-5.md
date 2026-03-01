@@ -3,6 +3,9 @@ title: 'Butterfly and Wind'
 description: A poem about love, falling, and the quiet catch that holds us when we can't hold ourselves.
 publishDate: 'Jan 20 2026'
 isFeatured: true
+tags:
+  - Love
+  - Nature
 seo:
   title: Butterfly and Wind
   description: A poem about love, falling, and the quiet catch that holds us when we can't hold ourselves.

@@ -2,6 +2,7 @@
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Pagination from '../../../components/Pagination.astro';
+import PoemPreview from '../../../components/PoemPreview.astro';
 import PostPreview from '../../../components/PostPreview.astro';
 import Subscribe from '../../../components/Subscribe.astro';
 import siteConfig from '../../../data/site-config';
@@ -9,11 +10,13 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts = (await getCollection('notes')).sort(sortItemsByDateDesc);
-    const tags = getAllTags(posts);
+    const notes = (await getCollection('notes')).sort(sortItemsByDateDesc);
+    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+    const allItems = [...notes, ...poems].sort(sortItemsByDateDesc);
+    const tags = getAllTags(allItems);
 
     return tags.flatMap((tag) => {
-        const filteredPosts = getPostsByTag(posts, tag.id);
+        const filteredPosts = getPostsByTag(allItems, tag.id);
         return paginate(filteredPosts, {
             params: { id: tag.id },
             pageSize: siteConfig.postsPerPage || 4
@@ -21,21 +24,27 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     });
 }
 
-type Props = { page: Page<CollectionEntry<'notes'>> };
+type Props = { page: Page<CollectionEntry<'notes' | 'poems'>> };
 
 const { page } = Astro.props;
 const blog = page.data;
 const params = Astro.params;
-const allPosts = await getCollection('notes');
-const allTags = getAllTags(allPosts);
+const allNotes = await getCollection('notes');
+const allPoems = await getCollection('poems');
+const allItems = [...allNotes, ...allPoems];
+const allTags = getAllTags(allItems);
 const currentTag = allTags.find((tag) => {
     return tag.id === params.id;
 });
 ---
 
-<BaseLayout title={`Notes Tagged ${currentTag?.name}`} description={`Explore a curated collection of notes under ${currentTag?.name}`} showHeader={false}>
-    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Notes Tagged "{currentTag?.name}"</h1>
-    {blog.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" />)}
+<BaseLayout title={`Tagged ${currentTag?.name}`} description={`Explore a curated collection of posts under ${currentTag?.name}`} showHeader={false}>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Tagged "{currentTag?.name}"</h1>
+    {
+        blog.map((post) =>
+            post.collection === 'poems' ? <PoemPreview poem={post as any} class="mb-10 sm:mb-12" /> : <PostPreview post={post as any} class="mb-10 sm:mb-12" />
+        )
+    }
     <Pagination page={page} class="my-16 sm:my-24" />
     <Subscribe class="my-16 sm:my-24" />
 </BaseLayout>

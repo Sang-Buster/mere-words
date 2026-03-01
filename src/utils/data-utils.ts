@@ -5,7 +5,7 @@ export function sortItemsByDateDesc(itemA: CollectionEntry<'notes' | 'poems'>, i
     return new Date(itemB.data.publishDate).getTime() - new Date(itemA.data.publishDate).getTime();
 }
 
-export function getAllTags(posts: CollectionEntry<'notes'>[]) {
+export function getAllTags(posts: CollectionEntry<'notes' | 'poems'>[]) {
     const tags: string[] = [...new Set(posts.flatMap((post) => post.data.tags || []).filter(Boolean))];
     return tags
         .map((tag) => {
@@ -19,7 +19,7 @@ export function getAllTags(posts: CollectionEntry<'notes'>[]) {
         });
 }
 
-export function getPostsByTag(posts: CollectionEntry<'notes'>[], tagId: string) {
-    const filteredPosts: CollectionEntry<'notes'>[] = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
+export function getPostsByTag(posts: CollectionEntry<'notes' | 'poems'>[], tagId: string) {
+    const filteredPosts = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
     return filteredPosts;
 }

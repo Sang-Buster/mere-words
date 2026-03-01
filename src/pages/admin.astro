@@ -111,7 +111,21 @@
                     var entry = this.props.entry;
                     var title = entry.getIn(['data', 'title']) || '';
                     var description = entry.getIn(['data', 'description']) || '';
+                    var tags = entry.getIn(['data', 'tags']);
                     var body = this.props.widgetFor('body');
+
+                    var tagElements = null;
+                    if (tags && tags.size > 0) {
+                        tagElements = h(
+                            'div',
+                            { className: 'tags' },
+                            tags
+                                .map(function (tag) {
+                                    return h('a', { key: tag, href: '#' }, '#' + tag);
+                                })
+                                .toArray()
+                        );
+                    }
 
                     return h(
                         'div',
@@ -125,7 +139,8 @@
                                 h('h1', {}, title),
                                 description ? h('p', { className: 'description' }, description) : null
                             ),
-                            h('div', { className: 'body' }, body)
+                            h('div', { className: 'body' }, body),
+                            tagElements
                         )
                     );
                 }
