@@ -51,15 +51,13 @@ collections:
           - label: Avatar
             name: avatar
             widget: object
-            required: false
             collapsed: true
             fields:
               - { label: Site Title, name: title, widget: string, hint: "Displayed next to the avatar" }
-              - { label: Subtitle, name: subtitle, widget: string, required: false }
+              - { label: Subtitle, name: subtitle, widget: string }
               - label: Image
                 name: src
                 widget: image
-                required: false
                 hint: "Upload an avatar image."
               - { label: Alt Text, name: alt, widget: string, required: false }
           - label: Hero Section
