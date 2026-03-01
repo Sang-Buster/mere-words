@@ -1,0 +1,25 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Pagination from '../../components/Pagination.astro';
+import PoemPreview from '../../components/PoemPreview.astro';
+import siteConfig from '../../data/site-config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sortItemsByDateDesc } from '../../utils/data-utils';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+    return paginate(poems, { pageSize: siteConfig.projectsPerPage || 6 });
+}
+
+type Props = { page: Page<CollectionEntry<'poems'>> };
+
+const { page } = Astro.props;
+const poems = page.data;
+---
+
+<BaseLayout title="Poems" description="A quiet collection of poems on faith, longing, doubt, and ordinary days" showHeader={false}>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Poems</h1>
+    {poems.map((poem) => <PoemPreview poem={poem} class="mb-10 sm:mb-12" />)}
+    <Pagination page={page} class="my-16 sm:my-24" />
+</BaseLayout>

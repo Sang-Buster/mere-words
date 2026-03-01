@@ -5,7 +5,7 @@ import Subscribe from '../../components/Subscribe.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../utils/data-utils';
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+const posts = (await getCollection('notes')).sort(sortItemsByDateDesc);
 const tags = getAllTags(posts).sort((tagA, tagB) => {
     const postCountTagA = getPostsByTag(posts, tagA.id).length;
     const postCountTagB = getPostsByTag(posts, tagB.id).length;
@@ -29,7 +29,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
                             {tag.name}
                         </h2>
                         <div class="mt-1 text-sm leading-normal">
-                            {postCount} {postCount === 1 ? 'post' : 'posts'}
+                            {postCount} {postCount === 1 ? 'note' : 'notes'}
                         </div>
                     </div>
                     <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:shrink-0 sm:items-center sm:gap-1">
