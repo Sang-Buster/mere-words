@@ -93,7 +93,12 @@ html.dark {
     }
 
     .prose blockquote {
-        @apply border-none pl-0 font-serif text-[1.375em] leading-snug font-normal italic sm:text-[1.66667em];
+        @apply border-l-2 border-solid pl-6 font-serif font-normal italic;
+        border-color: var(--border-main);
+    }
+
+    .prose blockquote blockquote {
+        @apply ml-2;
     }
 
     .prose mark {
