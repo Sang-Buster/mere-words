@@ -20,7 +20,6 @@ collections:
         file: src/data/site-settings.json
         format: json
         fields:
-          - { label: Website URL, name: website, widget: string }
           - { label: Browser Tab Text, name: browserTabText, widget: string, required: false, hint: "Shown in the browser tab. Falls back to Site Title if empty." }
           - label: Preview Image (SEO)
             name: previewImage
@@ -33,7 +32,7 @@ collections:
                 widget: image
                 required: false
               - { label: Alt Text, name: alt, widget: string, required: false }
-          - { label: Site Description, name: description, widget: text }
+          - { label: Site Description (SEO), name: description, widget: text, required: false, hint: "A short description of your site for SEO purposes" }
           - label: Header Nav Links
             name: headerNavLinks
             widget: list
