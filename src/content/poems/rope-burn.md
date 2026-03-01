@@ -3,7 +3,7 @@ title: Rope Burn
 description: ""
 publishDate: Feb 5 2026
 isFeatured: false
-hidden: true
+hidden: false
 tags:
   - Time
   - Release
