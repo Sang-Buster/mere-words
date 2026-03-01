@@ -7,6 +7,8 @@ isFeatured: true
 tags:
   - Writing
   - Faith
+categories:
+  - Prose
 seo:
   image:
     src: ../../assets/images/post-2.jpg

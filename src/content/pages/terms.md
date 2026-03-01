@@ -2,12 +2,12 @@
 title: Terms of Service
 seo:
   title: Terms of Service
-  description: Explore the terms and conditions of the Mere Words website for a clear understanding of guidelines and responsibilities.
+  description: Explore the terms and conditions of the my website for a clear understanding of guidelines and responsibilities.
 ---
 
 **Last updated on February 28, 2026**
 
-These Terms of Service ("Terms") govern your access to and use of Mere Words ("the Website") and any related services provided by Isabelle ("we," "us," or "our"). Please read these Terms carefully before using the Website.
+These Terms of Service govern your access to and use of the Website and any related services provided by Isabelle ("we," "us," or "our"). Please read these Terms carefully before using the Website.
 
 **1. Acceptance of Terms**
 

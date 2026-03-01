@@ -26,6 +26,7 @@ const notes = defineCollection({
             isFeatured: z.boolean().default(false),
             hidden: z.boolean().default(false),
             tags: z.array(z.string()).default([]),
+            categories: z.array(z.string()).default([]),
             seo: seoSchema(image).optional()
         })
 });
@@ -49,6 +50,7 @@ const poems = defineCollection({
             isFeatured: z.boolean().default(false),
             hidden: z.boolean().default(false),
             tags: z.array(z.string()).default([]),
+            categories: z.array(z.string()).default([]),
             seo: seoSchema(image).optional()
         })
 });

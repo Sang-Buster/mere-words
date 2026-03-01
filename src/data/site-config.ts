@@ -13,7 +13,7 @@ const siteConfig: SiteConfig = {
     description: 'Mere-Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words.',
     image: {
         src: '/preview.jpg',
-        alt: 'Mere Words - Astro.js and Tailwind CSS theme'
+        alt: 'Preview Image'
     },
     headerNavLinks: [
         {
@@ -31,6 +31,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Tags',
             href: '/tags'
+        },
+        {
+            text: 'Categories',
+            href: '/categories'
         }
     ],
     footerNavLinks: [

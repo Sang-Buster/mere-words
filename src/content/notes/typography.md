@@ -5,7 +5,7 @@ publishDate: 'Jan 1 2026'
 hidden: true
 seo:
   title: Typography & Markdown Guide
-  description: A complete reference of markdown syntax and typography styles available on Mere Words.
+  description: A complete reference of markdown syntax and typography styles
 ---
 
 ## Headings

@@ -6,6 +6,8 @@ isFeatured: true
 tags:
   - Love
   - Nature
+categories:
+  - Poetry
 seo:
   title: Butterfly and Wind
   description: A poem about love, falling, and the quiet catch that holds us when we can't hold ourselves.

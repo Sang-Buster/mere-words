@@ -4,10 +4,13 @@ description: ""
 publishDate: Feb 5 2026
 isFeatured: false
 hidden: true
+categories:
+  - Poetry
 seo:
   title: Rope Burn
   description: A poem by Isabelle — coming soon.
 ---
+
 “Hold on to those you love”
 
 “Hold on to your youth”

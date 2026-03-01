@@ -22,6 +22,7 @@ collections:
       - { label: Featured, name: isFeatured, widget: boolean, default: false }
       - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "Hidden articles won't appear in listings or search engines" }
       - { label: Tags, name: tags, widget: list, default: [] }
+      - { label: Categories, name: categories, widget: list, default: [] }
       - label: SEO
         name: seo
         widget: object
@@ -46,6 +47,7 @@ collections:
       - { label: Featured, name: isFeatured, widget: boolean, default: false }
       - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "Hidden articles won't appear in listings or search engines" }
       - { label: Tags, name: tags, widget: list, default: [] }
+      - { label: Categories, name: categories, widget: list, default: [] }
       - label: SEO
         name: seo
         widget: object

@@ -26,6 +26,7 @@ type Props = { post: CollectionEntry<'notes'>; prevPost: CollectionEntry<'notes'
 const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
+const categories = post.data.categories ?? [];
 const isHidden = post.data.hidden ?? false;
 const { Content } = await render(post);
 ---
@@ -52,17 +53,24 @@ const { Content } = await render(post);
             <Content />
         </div>
         <div class="mt-8 flex flex-wrap items-center justify-between gap-6 text-sm sm:mt-12 sm:text-base">
-            {
-                tags.length > 0 && (
-                    <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-                        {tags.map((tag) => (
+            <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
+                {
+                    tags.length > 0 &&
+                        tags.map((tag) => (
                             <a class="text-main hover:underline" href={`/tags/${slugify(tag)}`}>
                                 #{tag}
                             </a>
-                        ))}
-                    </div>
-                )
-            }
+                        ))
+                }
+                {
+                    categories.length > 0 &&
+                        categories.map((cat) => (
+                            <a class="text-main hover:underline" href={`/categories/${slugify(cat)}`}>
+                                @{cat}
+                            </a>
+                        ))
+                }
+            </div>
             <Button class="copy-url-button" aria-label="Copy link" data-url={href} data-tooltip-default="Copy link" data-tooltip-success="Copied">Share</Button>
         </div>
     </article>

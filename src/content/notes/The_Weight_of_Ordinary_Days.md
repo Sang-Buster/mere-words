@@ -6,6 +6,8 @@ isFeatured: false
 tags:
   - Reflection
   - Life
+categories:
+  - Prose
 seo:
   image:
     src: '../../assets/images/post-3.jpg'

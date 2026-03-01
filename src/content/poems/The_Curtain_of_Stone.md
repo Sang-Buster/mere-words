@@ -6,6 +6,8 @@ isFeatured: false
 tags:
   - Reflection
   - Emotions
+categories:
+  - Poetry
 seo:
   title: The Curtain of Stone
   description: A short poem about the walls we build and the emotions we only half reveal.

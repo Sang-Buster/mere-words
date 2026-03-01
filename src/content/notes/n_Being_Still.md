@@ -6,6 +6,8 @@ isFeatured: true
 tags:
   - Faith
   - Reflection
+categories:
+  - Prose
 seo:
   image:
     src: '../../assets/images/post-1.jpg'

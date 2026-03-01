@@ -1,0 +1,54 @@
+---
+import type { GetStaticPathsOptions, Page } from 'astro';
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Pagination from '../../../components/Pagination.astro';
+import PoemPreview from '../../../components/PoemPreview.astro';
+import PostPreview from '../../../components/PostPreview.astro';
+import Subscribe from '../../../components/Subscribe.astro';
+import siteConfig from '../../../data/site-config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAllCategories, getPostsByCategory, sortItemsByDateDesc } from '../../../utils/data-utils';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+    const notes = (await getCollection('notes')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
+    const poems = (await getCollection('poems')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
+    const allItems = [...notes, ...poems].sort(sortItemsByDateDesc);
+    const categories = getAllCategories(allItems);
+
+    return categories.flatMap((category) => {
+        const filteredPosts = getPostsByCategory(allItems, category.id);
+        return paginate(filteredPosts, {
+            params: { id: category.id },
+            pageSize: siteConfig.postsPerPage || 4
+        });
+    });
+}
+
+type Props = { page: Page<CollectionEntry<'notes' | 'poems'>> };
+
+const { page } = Astro.props;
+const blog = page.data;
+const params = Astro.params;
+const allNotes = (await getCollection('notes')).filter(({ data }) => !data.hidden);
+const allPoems = (await getCollection('poems')).filter(({ data }) => !data.hidden);
+const allItems = [...allNotes, ...allPoems];
+const allCategories = getAllCategories(allItems);
+const currentCategory = allCategories.find((category) => {
+    return category.id === params.id;
+});
+---
+
+<BaseLayout
+    title={`Category: ${currentCategory?.name}`}
+    description={`Explore a curated collection of posts under the ${currentCategory?.name} category`}
+    showHeader={false}
+>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Category: "{currentCategory?.name}"</h1>
+    {
+        blog.map((post) =>
+            post.collection === 'poems' ? <PoemPreview poem={post as any} class="mb-10 sm:mb-12" /> : <PostPreview post={post as any} class="mb-10 sm:mb-12" />
+        )
+    }
+    <Pagination page={page} class="my-16 sm:my-24" />
+    <Subscribe class="my-16 sm:my-24" />
+</BaseLayout>

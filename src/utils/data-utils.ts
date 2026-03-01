@@ -23,3 +23,22 @@ export function getPostsByTag(posts: CollectionEntry<'notes' | 'poems'>[], tagId
     const filteredPosts = posts.filter((post) => (post.data.tags || []).map((tag) => slugify(tag)).includes(tagId));
     return filteredPosts;
 }
+
+export function getAllCategories(posts: CollectionEntry<'notes' | 'poems'>[]) {
+    const categories: string[] = [...new Set(posts.flatMap((post) => post.data.categories || []).filter(Boolean))];
+    return categories
+        .map((category) => {
+            return {
+                name: category,
+                id: slugify(category)
+            };
+        })
+        .filter((obj, pos, arr) => {
+            return arr.map((mapObj) => mapObj.id).indexOf(obj.id) === pos;
+        });
+}
+
+export function getPostsByCategory(posts: CollectionEntry<'notes' | 'poems'>[], categoryId: string) {
+    const filteredPosts = posts.filter((post) => (post.data.categories || []).map((cat) => slugify(cat)).includes(categoryId));
+    return filteredPosts;
+}
