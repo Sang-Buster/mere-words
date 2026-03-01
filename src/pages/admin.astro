@@ -62,6 +62,12 @@
             <h1>Mere Words</h1>
             <p>Loading editor&hellip;</p>
         </div>
+        <!-- Identity widget MUST load before Decap so it uses the modal login instead of its own ugly form -->
+        <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <!-- Tell Decap exactly where config lives (fixes relative path issues on dev server) -->
+        <script is:inline>
+            window.CMS_CONFIG_URL = '/admin/config.yml';
+        </script>
         <script is:inline src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
         <script is:inline>
             // Hide loading screen once Decap CMS mounts
