@@ -1,94 +1,50 @@
-import avatar from '../assets/images/avatar.jpg';
-import hero from '../assets/images/hero.jpg';
+import avatarImage from '../assets/images/avatar.jpg';
+import heroImage from '../assets/images/hero.jpg';
+import previewImage from '../assets/images/preview.jpg';
 import type { SiteConfig } from '../types';
+import settings from './site-settings.json';
 
+/**
+ * Site configuration built from CMS-editable settings (src/data/site-settings.json)
+ * with fallback defaults for images that require Astro asset imports.
+ *
+ * Edit general settings via Decap CMS at /admin under "Site Settings".
+ */
 const siteConfig: SiteConfig = {
-    website: 'https://poetry.singsongaftermath.com',
+    website: settings.website,
     avatar: {
-        src: avatar,
-        alt: 'Isabelle'
+        src: settings.avatar?.src || avatarImage,
+        alt: settings.avatar?.alt || 'Avatar'
     },
-    title: 'Isabelle',
-    subtitle: 'Lines for the in-between',
-    description: 'Mere-Words is a quiet collection of poems and reflections on faith, longing, doubt, and the slow work of becoming. These are not polished answers, only honest words.',
+    title: settings.title,
+    subtitle: settings.subtitle,
+    description: settings.description,
     image: {
-        src: '/preview.jpg',
-        alt: 'Preview Image'
+        src: settings.previewImage?.src || previewImage,
+        alt: settings.previewImage?.alt || 'Preview Image'
     },
-    headerNavLinks: [
-        {
-            text: 'Home',
-            href: '/'
-        },
-        {
-            text: 'Poems',
-            href: '/poems'
-        },
-        {
-            text: 'Notes',
-            href: '/notes'
-        },
-        {
-            text: 'Tags',
-            href: '/tags'
-        },
-        {
-            text: 'Categories',
-            href: '/categories'
-        }
-    ],
-    footerNavLinks: [
-        {
-            text: 'About',
-            href: '/about'
-        },
-        {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
-            text: 'Terms',
-            href: '/terms'
-        },
-    ],
-    socialLinks: [
-        {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'Twitter/X',
-            href: 'https://twitter.com/'
-        },
-        {
-            text: 'LinkedIn',
-            href: 'https://linkedin.com/'
-        }
-    ],
+    headerNavLinks: settings.headerNavLinks,
+    footerNavLinks: settings.footerNavLinks,
+    socialLinks: settings.socialLinks,
     hero: {
-        title: 'You\'ve found a quiet place.',
-        text: "I'm **Isabelle**.\nI write poems, sometimes spiritual, sometimes not about the things that linger.\nAbout faith, doubt, longing, and ordinary days.\n\nYou can find more of my words on [Instagram](https://instagram.com/) or follow me on [Twitter/X](https://twitter.com/).",
+        title: settings.hero?.title,
+        text: settings.hero?.text,
         image: {
-            src: hero,
-            alt: 'Charlie Brown'
+            src: settings.hero?.image?.src || heroImage,
+            alt: settings.hero?.image?.alt || ''
         },
-        actions: [
-            {
-                text: 'Get in Touch',
-                href: '/contact'
-            }
-        ]
+        actions: settings.hero?.actions
     },
     subscribe: {
-        enabled: true,
-        title: 'Subscribe to my newsletter',
-        text: 'All the latest posts directly in your inbox.',
+        enabled: settings.subscribe?.enabled ?? true,
+        title: settings.subscribe?.title,
+        text: settings.subscribe?.text,
         form: {
-            action: '#'
+            action: settings.subscribe?.formAction || '#'
         }
     },
-    postsPerPage: 8,
-    projectsPerPage: 8
+    notesPerPage: settings.notesPerPage ?? 8,
+    poemsPerPage: settings.poemsPerPage ?? 8
 };
 
 export default siteConfig;

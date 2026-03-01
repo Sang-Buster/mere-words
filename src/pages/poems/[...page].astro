@@ -9,7 +9,7 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     const poems = (await getCollection('poems')).filter(({ data }) => !data.hidden).sort(sortItemsByDateDesc);
-    return paginate(poems, { pageSize: siteConfig.projectsPerPage || 6 });
+    return paginate(poems, { pageSize: siteConfig.poemsPerPage || 6 });
 }
 
 type Props = { page: Page<CollectionEntry<'poems'>> };

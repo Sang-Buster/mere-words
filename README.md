@@ -2,7 +2,7 @@
 
 Mere Words is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
 
-![Mere Words Astro.js Theme](public/preview.jpg)
+![Mere Words Astro.js Theme](public/favicon.png)
 
 [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/mere-words-astro-theme)
 

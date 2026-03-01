@@ -4,11 +4,109 @@ backend:
 
 site_url: https://poetry.singsongaftermath.com
 display_url: https://poetry.singsongaftermath.com
-
+local_backend: true
 media_folder: src/assets/images
 public_folder: ../../assets/images
 
 collections:
+  - name: settings
+    label: Site Settings
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: general
+        label: General Settings
+        file: src/data/site-settings.json
+        format: json
+        fields:
+          - { label: Website URL, name: website, widget: string }
+          - { label: Site Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string, required: false }
+          - { label: Site Description, name: description, widget: text }
+          - label: Avatar
+            name: avatar
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - label: Image
+                name: src
+                widget: image
+                required: false
+                hint: "Upload an avatar image."
+              - { label: Alt Text, name: alt, widget: string, required: false }
+          - label: Preview Image (SEO)
+            name: previewImage
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - label: Image
+                name: src
+                widget: image
+                required: false
+              - { label: Alt Text, name: alt, widget: string, required: false }
+          - label: Header Nav Links
+            name: headerNavLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
+          - label: Footer Nav Links
+            name: footerNavLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
+          - label: Social Links
+            name: socialLinks
+            widget: list
+            summary: "{{fields.text}}"
+            fields:
+              - { label: Text, name: text, widget: string }
+              - { label: URL, name: href, widget: string }
+          - label: Hero Section
+            name: hero
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Text, name: text, widget: text, required: false, hint: "Supports Markdown formatting" }
+              - label: Image
+                name: image
+                widget: object
+                required: false
+                collapsed: true
+                fields:
+                  - label: Image
+                    name: src
+                    widget: image
+                    required: false
+                    hint: "Upload a hero image."
+                  - { label: Alt Text, name: alt, widget: string, required: false }
+              - label: Actions
+                name: actions
+                widget: list
+                summary: "{{fields.text}}"
+                required: false
+                fields:
+                  - { label: Text, name: text, widget: string }
+                  - { label: URL, name: href, widget: string }
+          - label: Newsletter Subscribe
+            name: subscribe
+            widget: object
+            collapsed: true
+            fields:
+              - { label: Enabled, name: enabled, widget: boolean, default: true }
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Text, name: text, widget: string, required: false }
+              - { label: Form Action URL, name: formAction, widget: string, required: false, hint: "The URL your subscribe form posts to" }
+          - { label: Notes Per Page, name: notesPerPage, widget: number, default: 8, value_type: int }
+          - { label: Poems Per Page, name: poemsPerPage, widget: number, default: 8, value_type: int }
+
   - name: poems
     label: Poems
     folder: src/content/poems

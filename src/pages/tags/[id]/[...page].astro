@@ -19,7 +19,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
         const filteredPosts = getPostsByTag(allItems, tag.id);
         return paginate(filteredPosts, {
             params: { id: tag.id },
-            pageSize: siteConfig.postsPerPage || 4
+            pageSize: siteConfig.notesPerPage || 4
         });
     });
 }
