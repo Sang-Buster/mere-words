@@ -10,17 +10,23 @@ import settings from './site-settings.json';
  *
  * Edit general settings via Decap CMS at /admin under "Site Settings".
  */
+
+/** Returns true when the CMS image path is a real uploaded URL (not a local asset reference) */
+function isCmsUpload(src: string | undefined): src is string {
+    return !!src && !src.startsWith('../../assets/') && src !== '';
+}
+
 const siteConfig: SiteConfig = {
     website: settings.website,
     avatar: {
-        src: settings.avatar?.src || avatarImage,
+        src: isCmsUpload(settings.avatar?.src) ? settings.avatar.src : avatarImage,
         alt: settings.avatar?.alt || 'Avatar'
     },
     title: settings.title,
     subtitle: settings.subtitle,
     description: settings.description,
     image: {
-        src: settings.previewImage?.src || previewImage,
+        src: isCmsUpload(settings.previewImage?.src) ? settings.previewImage.src : previewImage,
         alt: settings.previewImage?.alt || 'Preview Image'
     },
     headerNavLinks: settings.headerNavLinks,
@@ -30,7 +36,7 @@ const siteConfig: SiteConfig = {
         title: settings.hero?.title,
         text: settings.hero?.text,
         image: {
-            src: settings.hero?.image?.src || heroImage,
+            src: isCmsUpload(settings.hero?.image?.src) ? settings.hero.image.src : heroImage,
             alt: settings.hero?.image?.alt || ''
         },
         actions: settings.hero?.actions

@@ -4,7 +4,6 @@ backend:
 
 site_url: https://poetry.singsongaftermath.com
 display_url: https://poetry.singsongaftermath.com
-local_backend: true
 media_folder: src/assets/images
 public_folder: ../../assets/images
 
