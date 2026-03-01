@@ -113,32 +113,38 @@
             <a href="/" class="back-link">&larr; Back to site</a>
         </div>
 
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script>
-            const loginBtn = document.getElementById('login-btn');
-            const loginContainer = document.getElementById('login-container');
+        <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        <script is:inline>
+            var loginBtn = document.getElementById('login-btn');
+            var loginContainer = document.getElementById('login-container');
 
-            loginBtn.addEventListener('click', () => {
+            function loadCMS() {
+                loginContainer.innerHTML = '<p style="opacity:0.7">Loading editor...</p>';
+                var script = document.createElement('script');
+                script.src = 'https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js';
+                document.body.appendChild(script);
+            }
+
+            loginBtn.addEventListener('click', function () {
                 netlifyIdentity.open();
             });
 
-            netlifyIdentity.on('login', () => {
-                // Once logged in, redirect to load the CMS
+            netlifyIdentity.on('login', function () {
                 document.location.href = '/admin/';
             });
 
-            netlifyIdentity.on('init', (user) => {
-                if (user) {
-                    // User is already logged in, load the CMS
-                    loginContainer.innerHTML = '<p>Loading editor...</p>';
-                    loadCMS();
-                }
-            });
-
-            function loadCMS() {
-                const script = document.createElement('script');
-                script.src = 'https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js';
-                document.body.appendChild(script);
+            // Check immediately if user is already logged in
+            // (handles the redirect back after login)
+            var currentUser = netlifyIdentity.currentUser();
+            if (currentUser) {
+                loadCMS();
+            } else {
+                // Also listen for init in case widget hasn't loaded yet
+                netlifyIdentity.on('init', function (user) {
+                    if (user) {
+                        loadCMS();
+                    }
+                });
             }
         </script>
     </body>
