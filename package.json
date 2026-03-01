@@ -18,6 +18,9 @@
         "@tailwindcss/vite": "^4.1.17",
         "astro": "^5.15.9",
         "marked": "^17.0.0",
+        "remark-deflist": "^1.0.0",
+        "remark-gfm": "^4.0.1",
+        "remark-supersub": "^1.0.0",
         "tailwindcss": "^4.1.17"
     },
     "devDependencies": {

@@ -102,4 +102,48 @@ html.dark {
         padding: 0.125em 0.25em;
         border-radius: 0.125em;
     }
+
+    /* Definition lists */
+    .prose dl {
+        margin-bottom: 1.25em;
+    }
+
+    .prose dt {
+        font-weight: 600;
+        margin-top: 1em;
+    }
+
+    .prose dd {
+        margin-left: 1.5rem;
+        margin-bottom: 0.5em;
+    }
+
+    /* Tables */
+    .prose table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5em 0;
+    }
+
+    .prose th {
+        text-align: left;
+        font-weight: 600;
+        padding: 0.5em 0.75em;
+        border-bottom: 2px solid var(--border-main);
+    }
+
+    .prose td {
+        padding: 0.5em 0.75em;
+        border-bottom: 1px solid var(--border-main);
+    }
+
+    .prose th[align="center"],
+    .prose td[align="center"] {
+        text-align: center;
+    }
+
+    .prose th[align="right"],
+    .prose td[align="right"] {
+        text-align: right;
+    }
 }
