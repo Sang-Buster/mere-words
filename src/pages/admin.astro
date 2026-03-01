@@ -76,6 +76,124 @@
                     clearInterval(check);
                 }
             }, 200);
+
+            // ── Shared preview styles matching the real site ──
+            var previewStyles =
+                '\
+                @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap");\
+                * { margin: 0; padding: 0; box-sizing: border-box; }\
+                body { font-family: "Inter", sans-serif; color: #171717; background: #f2f1ec; }\
+                .preview { max-width: 48rem; margin: 0 auto; padding: 2rem 1rem; }\
+                h1 { font-family: "Newsreader", serif; font-weight: 500; font-size: 2rem; line-height: 1.2; margin-bottom: 0.5rem; }\
+                @media (min-width: 640px) { h1 { font-size: 3rem; } }\
+                .meta { font-size: 0.875rem; opacity: 0.6; margin-bottom: 2rem; }\
+                .body { font-family: "Inter", sans-serif; font-size: 1rem; line-height: 1.75; }\
+                .body p { margin-bottom: 1.25em; }\
+                .body a { text-decoration: underline; }\
+                .body blockquote { border-left: 2px solid #171717; padding-left: 1rem; font-style: italic; margin: 1.5em 0; }\
+                .body h2 { font-family: "Newsreader", serif; font-size: 1.5rem; font-weight: 500; margin: 2em 0 0.75em; }\
+                .body h3 { font-family: "Newsreader", serif; font-size: 1.25rem; font-weight: 500; margin: 1.5em 0 0.5em; }\
+                .body ul, .body ol { padding-left: 1.5rem; margin-bottom: 1.25em; }\
+                .body li { margin-bottom: 0.25em; }\
+                .body img { max-width: 100%; height: auto; margin: 1.5em 0; }\
+                .body pre { background: #eae9e1; padding: 1rem; overflow-x: auto; margin: 1.5em 0; font-size: 0.875rem; }\
+                .body code { font-size: 0.875em; }\
+                .body hr { border: none; border-top: 1px dashed #171717; margin: 2em 0; }\
+                .tags { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; font-size: 0.875rem; margin-top: 2rem; }\
+                .tags a { color: #171717; text-decoration: none; }\
+                .tags a:hover { text-decoration: underline; }\
+                .description { font-size: 0.875rem; opacity: 0.6; margin-bottom: 2rem; font-style: italic; }\
+            ';
+
+            // ── Poem preview ──
+            var PoemPreview = createClass({
+                render: function () {
+                    var entry = this.props.entry;
+                    var title = entry.getIn(['data', 'title']) || '';
+                    var description = entry.getIn(['data', 'description']) || '';
+                    var body = this.props.widgetFor('body');
+
+                    return h(
+                        'div',
+                        { className: 'preview' },
+                        h(
+                            'article',
+                            {},
+                            h(
+                                'header',
+                                { style: { marginBottom: '2rem' } },
+                                h('h1', {}, title),
+                                description ? h('p', { className: 'description' }, description) : null
+                            ),
+                            h('div', { className: 'body' }, body)
+                        )
+                    );
+                }
+            });
+
+            // ── Note preview ──
+            var NotePreview = createClass({
+                render: function () {
+                    var entry = this.props.entry;
+                    var title = entry.getIn(['data', 'title']) || '';
+                    var date = entry.getIn(['data', 'publishDate']);
+                    var tags = entry.getIn(['data', 'tags']);
+                    var body = this.props.widgetFor('body');
+
+                    var dateStr = '';
+                    if (date) {
+                        var d = new Date(date);
+                        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                        dateStr = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+                    }
+
+                    var tagElements = null;
+                    if (tags && tags.size > 0) {
+                        tagElements = h(
+                            'div',
+                            { className: 'tags' },
+                            tags
+                                .map(function (tag) {
+                                    return h('a', { key: tag, href: '#' }, '#' + tag);
+                                })
+                                .toArray()
+                        );
+                    }
+
+                    return h(
+                        'div',
+                        { className: 'preview' },
+                        h(
+                            'article',
+                            {},
+                            h('header', { style: { marginBottom: '2rem' } }, h('h1', {}, title), dateStr ? h('p', { className: 'meta' }, dateStr) : null),
+                            h('div', { className: 'body' }, body),
+                            tagElements
+                        )
+                    );
+                }
+            });
+
+            // ── Page preview ──
+            var PagePreview = createClass({
+                render: function () {
+                    var entry = this.props.entry;
+                    var title = entry.getIn(['data', 'title']) || '';
+                    var body = this.props.widgetFor('body');
+
+                    return h(
+                        'div',
+                        { className: 'preview' },
+                        h('article', {}, h('header', { style: { marginBottom: '2rem' } }, h('h1', {}, title)), h('div', { className: 'body' }, body))
+                    );
+                }
+            });
+
+            // Register previews
+            CMS.registerPreviewStyle(previewStyles, { raw: true });
+            CMS.registerPreviewTemplate('poems', PoemPreview);
+            CMS.registerPreviewTemplate('notes', NotePreview);
+            CMS.registerPreviewTemplate('pages', PagePreview);
         </script>
     </body>
 </html>
