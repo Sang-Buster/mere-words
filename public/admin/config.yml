@@ -17,9 +17,9 @@ collections:
     preview_path: "poems/{{slug}}"
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: string, required: false }
+      - { label: Description, name: description, widget: string, required: false, hint: "A short summary shown in previews and SEO" }
       - { label: Publish Date, name: publishDate, widget: datetime, date_format: "MMM D YYYY", time_format: false }
-      - { label: Featured, name: isFeatured, widget: boolean, default: false }
+      - { label: Featured, name: isFeatured, widget: boolean, default: false, hint: "Featured poems/notes will be highlighted on the homepage" }
       - { label: Hidden, name: hidden, widget: boolean, default: false, hint: "Hidden articles won't appear in listings or search engines" }
       - { label: Tags, name: tags, widget: list, default: [] }
       - { label: Categories, name: categories, widget: list, default: [] }
@@ -28,6 +28,7 @@ collections:
         widget: object
         required: false
         collapsed: true
+        hint: "Optional — overrides default meta tags"
         fields:
           - { label: SEO Title, name: title, widget: string, required: false }
           - { label: SEO Description, name: description, widget: string, required: false }
