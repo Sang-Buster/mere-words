@@ -50,11 +50,20 @@ const { Content } = await render(poem);
         }
     </article>
     {
-        (prevPoem || nextPoem) && (
+        (nextPoem || prevPoem) && (
             <div class="my-16 sm:my-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Read Next</h2>
-                {nextPoem && <PoemPreview poem={nextPoem} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPoem && <PoemPreview poem={prevPoem} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {nextPoem && (
+                    <div class="mb-10 sm:mb-12">
+                        <p class="mb-3 font-serif text-sm italic opacity-60">Next</p>
+                        <PoemPreview poem={nextPoem} headingLevel="h3" />
+                    </div>
+                )}
+                {prevPoem && (
+                    <div class="mb-10 sm:mb-12">
+                        <p class="mb-3 font-serif text-sm italic opacity-60">Previous</p>
+                        <PoemPreview poem={prevPoem} headingLevel="h3" />
+                    </div>
+                )}
             </div>
         )
     }
