@@ -7,16 +7,19 @@ import { slugify } from '../../utils/common-utils';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths() {
-    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
-    const poemCount = poems.length;
-    return poems.map((poem, index) => ({
-        params: { id: poem.id },
-        props: {
-            poem,
-            prevPoem: index + 1 !== poemCount ? poems[index + 1] : null,
-            nextPoem: index !== 0 ? poems[index - 1] : null
-        }
-    }));
+    const allPoems = (await getCollection('poems')).sort(sortItemsByDateDesc);
+    const visiblePoems = allPoems.filter(({ data }) => !data.hidden);
+    return allPoems.map((poem) => {
+        const visibleIndex = visiblePoems.findIndex((p) => p.id === poem.id);
+        return {
+            params: { id: poem.id },
+            props: {
+                poem,
+                prevPoem: visibleIndex >= 0 && visibleIndex + 1 < visiblePoems.length ? visiblePoems[visibleIndex + 1] : null,
+                nextPoem: visibleIndex > 0 ? visiblePoems[visibleIndex - 1] : null
+            }
+        };
+    });
 }
 
 type Props = {

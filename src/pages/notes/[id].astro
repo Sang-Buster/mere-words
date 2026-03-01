@@ -9,16 +9,19 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('notes')).sort(sortItemsByDateDesc);
-    const postCount = posts.length;
-    return posts.map((post, index) => ({
-        params: { id: post.id },
-        props: {
-            post,
-            prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-            nextPost: index !== 0 ? posts[index - 1] : null
-        }
-    }));
+    const allPosts = (await getCollection('notes')).sort(sortItemsByDateDesc);
+    const visiblePosts = allPosts.filter(({ data }) => !data.hidden);
+    return allPosts.map((post) => {
+        const visibleIndex = visiblePosts.findIndex((p) => p.id === post.id);
+        return {
+            params: { id: post.id },
+            props: {
+                post,
+                prevPost: visibleIndex >= 0 && visibleIndex + 1 < visiblePosts.length ? visiblePosts[visibleIndex + 1] : null,
+                nextPost: visibleIndex > 0 ? visiblePosts[visibleIndex - 1] : null
+            }
+        };
+    });
 }
 
 type Props = { post: CollectionEntry<'notes'>; prevPost: CollectionEntry<'notes'>; nextPost: CollectionEntry<'notes'> };
