@@ -14,7 +14,7 @@ seo:
 ---
 ![A journal and pen](../../assets/images/post-2.jpg)
 
-I don't always know what I believe until I write it down. test
+I don't always know what I believe until I write it down.
 
 There's something about putting words on a page that strips away pretense. You can't hide behind a smile or a rehearsed answer when it's just you and the blank page.
 
