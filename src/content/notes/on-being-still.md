@@ -1,8 +1,10 @@
 ---
 title: On Being Still
-excerpt: Sometimes the hardest thing is to stop moving and just be present in the silence.
-publishDate: 'Feb 20 2026'
+excerpt: Sometimes the hardest thing is to stop moving and just be present in
+  the silence.
+publishDate: Feb 20 2026
 isFeatured: true
+hidden: true
 tags:
   - Faith
   - Reflection
