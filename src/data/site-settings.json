@@ -23,7 +23,7 @@
     }
   ],
   "subscribe": {
-    "enabled": true,
+    "enabled": false,
     "title": "Subscribe to my newsletter",
     "text": "All the latest posts directly in your inbox.",
     "formAction": "#"
