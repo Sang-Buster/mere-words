@@ -4,7 +4,7 @@ excerpt: Not every day carries a revelation. Some days just carry you, and maybe
   that's enough.
 publishDate: Jan 30 2026
 isFeatured: false
-hidden: true
+hidden: false
 tags:
   - Reflection
   - Life
