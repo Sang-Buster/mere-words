@@ -1,7 +1,9 @@
 backend:
   name: git-gateway
   branch: main
+  squash_merges: true
 
+publish_mode: editorial_workflow
 site_url: https://poetry.singsongaftermath.com
 display_url: https://poetry.singsongaftermath.com
 local_backend: true
