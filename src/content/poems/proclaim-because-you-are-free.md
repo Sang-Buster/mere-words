@@ -4,9 +4,7 @@ description: ""
 publishDate: Feb 10 2026
 isFeatured: true
 hidden: false
-tags:
-  - Freedom
-  - Faith
+tags: []
 categories:
   - Poetry
 seo:
