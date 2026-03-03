@@ -8,7 +8,7 @@ seo:
     src: ../../assets/images/about.jpg
     alt: A person sitting at a desk in front of a computer
 ---
-![Alt text for image](../../assets/images/post-1.jpg)
+![Alt text for image](../../assets/images/preview.jpg)
 
 Hey! I’m Isabelle.
 
