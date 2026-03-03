@@ -3,7 +3,7 @@ title: Rope Burn
 description: ""
 publishDate: Mar 3 2026
 isFeatured: true
-hidden: true
+hidden: false
 tags: []
 categories:
   - Poetry
