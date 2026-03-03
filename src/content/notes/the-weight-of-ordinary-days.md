@@ -1,8 +1,10 @@
 ---
 title: The Weight of Ordinary Days
-excerpt: Not every day carries a revelation. Some days just carry you, and maybe that's enough.
-publishDate: 'Jan 30 2026'
+excerpt: Not every day carries a revelation. Some days just carry you, and maybe
+  that's enough.
+publishDate: Jan 30 2026
 isFeatured: false
+hidden: true
 tags:
   - Reflection
   - Life
@@ -10,7 +12,7 @@ categories:
   - Prose
 seo:
   image:
-    src: '../../assets/images/post-1.jpg'
+    src: ../../assets/images/post-1.jpg
     alt: An ordinary street at dusk
 ---
 
