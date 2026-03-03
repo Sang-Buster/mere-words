@@ -8,13 +8,7 @@ tags:
   - Reflection
 categories:
   - Prose
-seo:
-  image:
-    src: '../../assets/images/post-1.jpg'
-    alt: A quiet moment of reflection
 ---
-
-![A quiet moment of reflection](../../assets/images/post-1.jpg)
 
 Sometimes the hardest thing is to stop moving.
 

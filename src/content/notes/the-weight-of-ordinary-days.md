@@ -10,11 +10,11 @@ categories:
   - Prose
 seo:
   image:
-    src: '../../assets/images/post-3.jpg'
+    src: '../../assets/images/post-1.jpg'
     alt: An ordinary street at dusk
 ---
 
-![An ordinary street at dusk](../../assets/images/post-3.jpg)
+![An ordinary street at dusk](../../assets/images/post-1.jpg)
 
 Not every day carries a revelation.
 

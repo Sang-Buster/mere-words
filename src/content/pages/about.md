@@ -5,7 +5,7 @@ seo:
   description: Learn more about the person behind the website and embark on a
     journey of inspiration and shared experiences.
   image:
-    src: ../../assets/images/about.jpg
+    src: ../../assets/images/preview.jpg
     alt: A person sitting at a desk in front of a computer
 ---
 ![Alt text for image](../../assets/images/preview.jpg)

@@ -40,6 +40,8 @@ collections:
                     name: src
                     widget: image
                     required: false
+                    media_folder: /src/assets/images
+                    public_folder: ../../assets/images
                   - { label: Alt Text, name: alt, widget: string, required: false }
               - { label: Site Description, name: description, widget: text, required: false, hint: "A short description of your site for SEO purposes" }
           - label: Header Nav Links
@@ -61,6 +63,8 @@ collections:
                 name: src
                 widget: image
                 hint: "Upload an avatar image."
+                media_folder: /src/assets/images
+                public_folder: ../../assets/images
               - { label: Alt Text, name: alt, widget: string, required: false }
           - label: Hero Section
             name: hero
@@ -80,6 +84,8 @@ collections:
                     widget: image
                     required: false
                     hint: "Upload a hero image."
+                    media_folder: /src/assets/images
+                    public_folder: ../../assets/images
                   - { label: Alt Text, name: alt, widget: string, required: false }
               - label: Actions
                 name: actions
@@ -171,7 +177,12 @@ collections:
             widget: object
             required: false
             fields:
-              - { label: Image, name: src, widget: image, required: false }
+              - label: Image
+                name: src
+                widget: image
+                required: false
+                media_folder: /src/assets/images
+                public_folder: ../../assets/images
               - { label: Alt Text, name: alt, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
 
@@ -196,6 +207,11 @@ collections:
             widget: object
             required: false
             fields:
-              - { label: Image, name: src, widget: image, required: false }
+              - label: Image
+                name: src
+                widget: image
+                required: false
+                media_folder: /src/assets/images
+                public_folder: ../../assets/images
               - { label: Alt Text, name: alt, widget: string, required: false }
       - { label: Body, name: body, widget: markdown }
