@@ -29,20 +29,7 @@
     "formAction": "#"
   },
   "notesPerPage": 8,
-  "socialLinks": [
-    {
-      "text": "Instagram",
-      "href": "https://instagram.com/"
-    },
-    {
-      "text": "Twitter/X",
-      "href": "https://twitter.com/"
-    },
-    {
-      "text": "Linkedin",
-      "href": "https://www.linkedin.com/"
-    }
-  ],
+  "socialLinks": [],
   "footerNavLinks": [
     {
       "text": "About",
