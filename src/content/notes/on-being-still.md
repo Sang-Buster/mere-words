@@ -4,7 +4,7 @@ excerpt: Sometimes the hardest thing is to stop moving and just be present in
   the silence.
 publishDate: Feb 20 2026
 isFeatured: false
-hidden: true
+hidden: false
 tags:
   - Faith
   - Reflection
