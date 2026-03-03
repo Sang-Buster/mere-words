@@ -1,6 +1,6 @@
 ---
 title: 'Because Nobody Told Him'
-description: A poem about a bird who might be free simply because nobody told him otherwise.
+description: ""
 publishDate: 'Feb 15 2026'
 isFeatured: true
 tags:

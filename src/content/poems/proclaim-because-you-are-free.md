@@ -1,6 +1,6 @@
 ---
 title: 'Proclaim Because You Are Free'
-description: A poem about freedom, faith, and the weight of being unable to speak the words that matter most.
+description: ""
 publishDate: 'Feb 10 2026'
 isFeatured: true
 tags:
