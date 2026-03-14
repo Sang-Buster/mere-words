@@ -25,10 +25,7 @@ with nothing needing to be said.
 
 **(II)**
 
-A walk is the world's second greatest date.
-The greatest
-is when two people pour their own moonlight
-into the same river.
+The greatest is when two people pour their own moonlight into the same river.
 
 The most precious thing one person can give another is time.
 In this noisy world,
@@ -39,7 +36,9 @@ are the softest moonlight I have saved.
 
 **(III)**
 
-Thoreau said: the one who walks is not the one rushing somewhere,
+Thoreau said: if a man does not keep pace with his companions, perhaps it is because he hears a different drummer.
+
+The one who walks is not the one rushing somewhere,
 but the one who follows the drumbeat of the heart.
 
 Return time to time.
