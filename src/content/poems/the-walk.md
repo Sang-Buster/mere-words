@@ -25,10 +25,17 @@ with nothing needing to be said.
 
 **(II)**
 
-The greatest is when two people pour their own moonlight into the same river.
+The greatest
+
+is when two people pour their own moonlight 
+
+into the same river.
+
 
 The most precious thing one person can give another is time.
+
 In this noisy world,
+
 those evenings spent walking together
 are the softest moonlight I have saved.
 
