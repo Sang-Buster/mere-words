@@ -43,7 +43,7 @@ are the softest moonlight I have saved.
 
 **(III)**
 
-Thoreau said:[^1]
+Thoreau said: [^1]
 > If a man does not keep pace with his companions, perhaps it is because he hears a different drummer.
 
 [^1]: Thoreau, Henry David. Walden. Macmillan Collector's Library, 2016.
