@@ -2,7 +2,7 @@
 title: The Walk
 publishDate: Mar 13 2026
 isFeatured: false
-hidden: false
+hidden: true
 tags: []
 categories: []
 ---
@@ -47,11 +47,9 @@ Thoreau said: if a man does not keep pace with his companions, perhaps it is bec
 
 [^1]: Thoreau, Henry David. Walden. Macmillan Collector's Library, 2016.
 
-The one who walks is not the one rushing somewhere,
-but the one who follows the drumbeat of the heart.
+The one who walks is not the one rushing somewhere, but the one who follows the drumbeat of the heart.
 
-Return time to time.
-Return you to yourself.
+Return time to time. Return you to yourself.
 
 The ancients walked to drink with heaven and earth.
 We walk to reunite with ourselves.
@@ -69,20 +67,15 @@ shortened the distance to a heartbeat,
 and were all drawn into the most secret map within.
 
 Those who can walk together are those who can share solitude:
-not needing to speak, not needing excitement,
-just two people whose silences happen to be on the same frequency.
+not needing to speak, not needing excitement, just two people whose silences happen to be on the same frequency.
 
 - - -
 
 **(V)**
 
-A walk is a tenderness that does not chase the clock.
-The road is slow, the words are slow, the heartbeat too is slow;
-only memory quietly quickens its pace by a few steps.
+A walk is a tenderness that does not chase the clock. The road is slow, the words are slow, the heartbeat too is slow; only memory quietly quickens its pace by a few steps.
 
 Some words cannot be spoken sitting still.
-Walking along, they simply fall into the wind
-and are picked up by the moon.
+Walking along, they simply fall into the wind and are picked up by the moon.
 
-I break time in half
-and give you one piece of it.
+I break time in half and give you one piece of it.
