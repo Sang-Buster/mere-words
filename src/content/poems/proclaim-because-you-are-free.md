@@ -1,18 +1,17 @@
 ---
-title: 'Proclaim Because You Are Free'
+title: Proclaim Because You Are Free
 description: ""
-publishDate: 'Feb 10 2026'
+publishDate: Feb 10 2026
 isFeatured: true
-tags:
-  - Freedom
-  - Faith
+hidden: false
+tags: []
 categories:
   - Poetry
 seo:
   title: Proclaim Because You Are Free
-  description: A poem about freedom, faith, and the weight of being unable to speak the words that matter most.
+  description: A poem about freedom, faith, and the weight of being unable to
+    speak the words that matter most.
 ---
-
 This morning I woke in shackles
 
 With a cloth tied around my mouth
@@ -33,7 +32,7 @@ I was curious and hopeful I could take it off -right away -when I left
 
 I ran out the door
 
--hugged the guard -contemplated my arrest
+\-hugged the guard -contemplated my arrest
 
 "Free" in the world I fell to my knees
 
@@ -83,9 +82,8 @@ It was just then that I pondered- heartache seeping all throughout-
 
 "I've thought of Your name more.. in these few hours…"
 
- -I mourned-
+\-I mourned-
 
-"…than in so many days combined
+"…than in *so many days* combined
 
--how I followed You before."
-
+\-how I followed You before."
