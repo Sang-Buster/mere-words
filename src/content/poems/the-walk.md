@@ -36,7 +36,9 @@ are the softest moonlight I have saved.
 
 **(III)**
 
-Thoreau said: if a man does not keep pace with his companions, perhaps it is because he hears a different drummer.
+Thoreau said: if a man does not keep pace with his companions, perhaps it is because he hears a different drummer [^1].
+
+[^1]: Thoreau, Henry David. Walden. Macmillan Collector's Library, 2016.
 
 The one who walks is not the one rushing somewhere,
 but the one who follows the drumbeat of the heart.
