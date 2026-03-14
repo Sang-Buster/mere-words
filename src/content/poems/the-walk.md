@@ -37,7 +37,7 @@ The most precious thing one person can give another is time.
 In this noisy world,
 
 those evenings spent walking together
-are the softest moonlight I have saved.
+are the gentlest moonlight I have kept.
 
 - - -
 
@@ -50,10 +50,10 @@ Thoreau said: [^1]
 
 The one who walks is not the one rushing somewhere, but the one who follows the drumbeat of the heart.
 
-Return time to time. Return you to yourself.
+Give time back to time. Give you back to yourself.
 
-The ancients walked to drink with heaven and earth.
-We walk to reunite with ourselves.
+The ancients walked in communion with heaven and earth.
+We walk to find ourselves again.
 
 - - -
 
@@ -63,8 +63,8 @@ The shape a city takes in your heart
 is not determined by its landmarks,
 but by the person you walked it with.
 
-Those winding roads we traveled
-shortened the distance to a heartbeat,
+Those winding roads we traveled 
+closed the distance to a heartbeat,
 and were all drawn into the most secret map within.
 
 Those who can walk together are those who can share solitude:
@@ -80,3 +80,4 @@ Some words cannot be spoken sitting still.
 Walking along, they simply fall into the wind and are picked up by the moon.
 
 I break time in half and give you one piece of it.
+My
